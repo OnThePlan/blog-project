@@ -27,7 +27,7 @@ public class LoginController {
 		System.out.println("이게 무슨 일이야");
 		return result;
 		
-		///moon test test dajeong
+		///moon 
 		//jungsoo
   // test jungsoo2
 	}
