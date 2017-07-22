@@ -26,7 +26,8 @@ public class LoginController {
 		result.setTest2(123);
 		System.out.println("이게 무슨 일이야");
 		return result;
-		///moon test dajeong test
+		
+		///moon test test dajeong
 
 	}
 
