@@ -1,0 +1,108 @@
+<%@ page pageEncoding="utf-8"%>
+<META http-equiv="Expires" content="-1"> 
+<META http-equiv="Pragma" content="no-cache"> 
+<META http-equiv="Cache-Control" content="No-Cache"> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/admin.css" type="text/css" media="screen" charset="utf-8"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+
+<script>
+	$( document ).ready(function() {
+		 $.ajax({
+			 url: "/admin/loginName.do",
+			 success: function(date){
+				 
+        		$("#login_name").text(date.s_no);
+        		$("#login_name").append(' <i class="fa fa-remove  w3-right " onclick="w3_close()" id="close" style="display:none;"></i>');
+    		}
+		 });
+	});
+	
+	// Open and close the sidebar on medium and small screens
+	function w3_open() {
+	    document.getElementById("mySidebar").style.display = "block";
+	    document.getElementById("myOverlay").style.display = "block";
+	    document.getElementById("close").style.display = "block";
+	}
+	function w3_close() {
+	    document.getElementById("mySidebar").style.display = "none";
+	    document.getElementById("myOverlay").style.display = "none";
+	    document.getElementById("close").style.display = "none";
+	}
+	
+	// Change style of top container on scroll
+	window.onscroll = function() {myFunction();};
+	function myFunction() {
+	    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+	        document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+	        $("#title").hide();
+	        document.getElementById("myIntro").classList.add("w3-show-inline-block");
+	    } else {
+	        document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+	        $("#title").show();
+	        document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+	    }
+	}
+	
+	// Accordions
+	function myAccordion(id) {
+	    var x = document.getElementById(id);
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	        x.previousElementSibling.className += " w3-theme";
+	    } else { 
+	        x.className = x.className.replace("w3-show", "");
+	        x.previousElementSibling.className = 
+	        x.previousElementSibling.className.replace(" w3-theme", "");
+	    }
+	}
+</script>
+
+<style>
+	body {font-family: "Roboto", sans-serif;}
+	.w3-bar-block .w3-bar-item{padding:16px;font-weight:bold;}
+	
+	nav a{font-size:1em;  }
+	
+	@media (max-width:992px){
+	#title{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);}
+	}
+	
+</style>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card-2 w3-center w3-blue-gray" style="z-index:3;width:250px; " id="mySidebar">
+  <a class="w3-bar-item  w3-border-bottom w3-large w3-blue-gray"  style="text-align:center; border-bottom-color:#303e45; " id="login_name">로그인 네임 <i class="fa fa-remove  w3-right " onclick="w3_close()" id="close" style="display:none;"></i></a>
+  <a class="w3-bar-item w3-button "  href="/admin/rwi/rwiList.do"<c:if test='${menu == "1"}'>style="background-color:#303e45;"</c:if>>실시간복지정보</a>
+  <a class="w3-bar-item w3-button " href="#" <c:if test='${menu == "2"}'>style="background:#303e45;"</c:if>>생생복지사례</a>
+  <a class="w3-bar-item w3-button" href="#" <c:if test='${menu == "3"}'>style="background:#303e45;"</c:if>>복지공유방</a>
+  <a class="w3-bar-item w3-button " href="#" <c:if test='${menu == "4"}'>style="background:#303e45;"</c:if>>희망나눔소통방</a>
+  <a class="w3-bar-item w3-button " href="/admin/application/apList.do" <c:if test='${menu == "5"}'>style="background:#303e45;"</c:if>>신청사연</a>
+  <a class="w3-bar-item w3-button " href="/admin/suggestions/sgList.do" <c:if test='${menu == "6"}'>style="background:#303e45;"</c:if>>건의사항</a>
+  <!-- <div>
+    <a class="w3-bar-item w3-button" onclick="myAccordion('demo')" href="javascript:void(0)">Dropdown <i class="fa fa-caret-down"></i></a>
+    <div id="demo" class="w3-hide">
+      <a class="w3-bar-item w3-button" href="#">Link</a>
+      <a class="w3-bar-item w3-button" href="#">Link</a>
+      <a class="w3-bar-item w3-button" href="#">Link</a>
+    </div> -->
+    
+    <div class="w3-cell-row w3-display-bottomright  w3-center w3-padding-24">
+
+	  <div class="w3-container w3-cell w3-border-right ">
+	    <a class="w3-medium w3-button"  href="/admin/notice/noticeList.do">공지사항</a>
+	  </div>
+	
+	  <div class="w3-container w3-cell">
+	    <a class="w3-medium w3-button" href="/logout">로그아웃</a>
+	  </div>
+
+	</div>
+</nav>
+

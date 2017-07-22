@@ -1,0 +1,5 @@
+<%@ page pageEncoding="utf-8"%>
+<!-- 로딩 페이지 시작 -->
+<footer class="w3-container w3-blue-gray " >
+		  <p>NEXT-PAGE</p>
+ </footer>
