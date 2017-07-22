@@ -52,4 +52,5 @@ public class CommandMap {
     public Map<String,Object> getMap(){
         return map;
     }
+    
 }

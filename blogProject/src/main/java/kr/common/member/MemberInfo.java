@@ -185,4 +185,5 @@ public class MemberInfo implements UserDetails {
 			return null;
 		}
 	}
+	
 }

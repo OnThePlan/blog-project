@@ -74,7 +74,6 @@
              
         });
          
-         
         function namager_add(){
             var comSubmit = new ComSubmit();
             comSubmit.setUrl("<c:url value='/admin/rwi/rwiAddPage.do' />");

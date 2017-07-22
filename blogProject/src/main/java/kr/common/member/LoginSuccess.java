@@ -31,7 +31,6 @@ public class LoginSuccess extends SavedRequestAwareAuthenticationSuccessHandler 
         session.setAttribute("user_id", request.getParameter("j_username"));
   /*      session.setAttribute("s_no", s_no);*/
         
-        
         super.onAuthenticationSuccess(request, response, authentication);
      }
 }

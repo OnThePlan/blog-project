@@ -51,4 +51,5 @@ public class LoginController {
         /*mv.addObject("b_no", b_no);*/
         return mv;
     }
+    
 }

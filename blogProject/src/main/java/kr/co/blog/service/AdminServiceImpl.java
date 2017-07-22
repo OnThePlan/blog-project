@@ -17,7 +17,6 @@ public class AdminServiceImpl implements AdminService{
     @Resource(name="adminDAO")
     private AdminDAO adminDAO;
 
-
 	//공지사항 리스트 데이터
 	@Override
 	public List<Map<String, Object>> getNoticeList() {

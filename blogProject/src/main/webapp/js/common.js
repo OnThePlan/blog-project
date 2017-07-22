@@ -59,8 +59,6 @@ function ComAjax(opt_formId){
     this.addParam = function addParam(key,value){ 
         this.param = this.param + "&" + key + "=" + value; 
     };
-    
-
      
     this.ajax = function ajax(){
         if(this.formId != "commonForm"){

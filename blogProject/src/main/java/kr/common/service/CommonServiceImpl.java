@@ -69,4 +69,5 @@ public class CommonServiceImpl implements CommonService{
 	public void projectfileUpload(Map<String, Object> map) throws Exception {
 		commonDAO. projectfileUpload(map); 
 	}
+	
 }

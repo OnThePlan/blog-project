@@ -80,24 +80,5 @@
 			</form>
 		</div>
 	</div>
-	
-	<!-- <div id="id01" class="w3-modal">
-	    <div class="w3-modal-content">
-	      <header class="w3-container w3-blue"> 
-	        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-	        <h2>회원가입</h2>
-	      </header>
-	      	  <label class="w3-text-blue"><b>First Name</b></label>
-			  <input class="w3-input w3-bordered" name="first" type="text" style='height:30px;'>
-			  <p>      
-			  <label class="w3-text-blue"><b>Last Name</b></label>
-			  <input class="w3-input w3-bordered" name="last" type="text"></p>
-			  <p>      
-			  <button class="w3-btn w3-blue">Register</button></p>
-	      <footer class="w3-container w3-blue">
-	        <p></p>
-	      </footer>
-	    </div>
-	  </div> -->
 	</body>
 </html>

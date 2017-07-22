@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 public interface CommonService {
 
 	List<Map<String, Object>> getDepartmentList();

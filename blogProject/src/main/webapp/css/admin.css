@@ -1,0 +1,31 @@
+@charset "utf-8";
+ #h1{font-size:3vw;}
+ footer{
+ 	text-align:center; 
+ 	margin-top:5vw;
+ }
+
+#cnt{
+	width:20vw;
+	display:inline-block;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+#cnt_title{
+	width:10vw;
+	display:inline-block;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+}
+@media all and (min-width:768px) and (max-width:992px){
+	#h1{font-size:4vw;}
+}
+@media all and (min-width:400px) and (max-width:768px){
+	#h1{font-size:5vw;}
+}
+@media all and (max-width:400px)  {  /* 사용자 해상도가 768px 이하일 때 이 코드가 실행됨 */
+	#h1{font-size:8vw;}
+}

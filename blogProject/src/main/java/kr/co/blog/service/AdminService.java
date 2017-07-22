@@ -25,4 +25,5 @@ public interface AdminService {
 	Map<String, Object> rwiUpdatePage(Map<String, Object> map);
 	void rwiDeleted(Map<String, Object> map);
 	void rwiUpdate(Map<String, Object> map);
+	
 }

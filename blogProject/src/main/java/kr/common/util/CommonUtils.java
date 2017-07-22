@@ -1,7 +1,5 @@
 package kr.common.util;
 
-
-
 import java.io.PrintWriter;
 import java.util.UUID;
 

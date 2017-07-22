@@ -46,4 +46,5 @@ public class CommonDAO extends AbstractDAO{
 	public void projectfileUpload(Map<String, Object> map) {
 		insert("common.projectfileUpload", map);
 	}
+	
 }

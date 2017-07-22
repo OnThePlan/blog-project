@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository("adminDAO")
 public class AdminDAO extends AbstractDAO{	
 
-	
 	//공지사항 리스트 데이터
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getNoticeList() {

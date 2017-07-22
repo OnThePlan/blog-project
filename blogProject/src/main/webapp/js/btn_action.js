@@ -11,7 +11,6 @@
         	$(obj).parent("td").parent("tr").remove();  
         }
         
-        
 $(document).ready(function(){
 	var host = window.location.host;
 	var url = window.location.href;
