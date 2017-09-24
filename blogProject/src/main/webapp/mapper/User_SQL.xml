@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+	<!-- 사용자 회원가입 -->
+	<insert id="insertUser">
+	INSERT INTO USERS
+	(user_id, first_name, last_name, password, email, nickname, login_timezone, language, login_attempt, active, deleted, created_at)
+	VALUES 
+	(#{user_id}, #{first_name}, #{last_name}, #{passowrd}, #{email}, #{nickname}, #{login_timezone}, #{language} 0, 'Y', 'N', SYSDATE())
+	</insert>
+
+	<!-- 사용자 정보 가져오기 -->
+	<select id="selectUsesr" parameterType="hashmap" resultType="hashmap">
+	SELECT first_name, last_name, email, nickname, language, created_at 
+	FROM USERS 
+	WHERE email = #{email}
+	</select>
+	
+	<!-- 사용자 로그인 체크 -->
+	<select id="selectLoginCheck">
+	SELECT user_id, password from USERS
+	</select>
+	
+	<!-- 사용자 정보 수정 -->
+	<update id="updateUser">
+	UPDATE USERS SET first_name=#{first_name}, last_name=#{last_name}, email=#{email}, nickname=#{nickname}, language=#{language}, updated_at=SYSDATE() 
+	WHERE user_id=#{user_id}
+	</update>
+	
+	<!-- 사용자 정보 삭제 -->
+	<update id="deleteUser">
+	UPDATE USERS SET delete='Y' 
+	WHERE user_id=#{user_id}
+	</update>
+	
+	<!-- 사용자 비밀번호 수정 -->
+	<update id="updateUserPassword">
+	UPDATE USERS SET password=#{password} 
+	WHERE user_id=#{user_id}
+	</update>
+	
+	<!-- 로그인 비밀 번호 오류 횟수 업데이트 -->
+	<update id="updateLoginAttempt">
+	UPDATE USERS 
+	SET login_attempt=login_attempt+1
+	WHERE user_id=#{user_id}
+	</update>
+	
+	<!-- 로그인 비밀 번호 오류 횟수 조회 -->
+	<select id="selectLoginAttempt">
+	SELECT login_attempt from USERS
+	WHERE user_id=#{user_id}
+	</select>
+	
+	<!-- 로그인 비밀 번호 오류 횟수 초기화 -->
+	<update id="initializeLoginAttempt">
+	UPDATE USERS
+	SET login_attempt=0
+	WHERE user_id=#{user_id}
+	</update>
+	
+	<!-- 사용자 블로그 생성 -->
+	<insert id="insertUserBlogTemplate">
+	INSERT INTO USER_BLOG_TEMPLATE 
+	(blog_id, user_id, user_skin_id, image_path, intro_text, created) 
+	VALUES
+	(#{blog_id}, #{user_id}, #{user_skin_id}, #{image_path}, #{intro_text}, SYSDATE())
+	</insert>
+	
+	<!-- 사용자 블로그 수정 -->
+	<update id="updateUerBlogTemplate">
+	UPDATE USER_BLOG_TEMPLATE 
+	SET user_skin_id=#{user_skin_id}, image_path=#{image_path}, intro_text=#{intro_text}, active=#{active}, updated_at=SYSDATE() user_id=#{user_id}
+	WHERE user_id=#{user_id}
+	</update>
+	
+	<!-- 사용자 블로그 삭제 -->
+	<update id="deleteUserBlogTemplate">
+	UPDATE USER_BLOG_TEMPLATE 
+	SET deleted = 'Y' 
+	WHERE user_id=#{user_id}
+	</update>
+	
+	<!-- 사용자 블로그 정보 가져오기 -->
+	<select id="selectUserBlogTemplate">
+	SELECT user_id, user_skin_id, image_path, intro_text
+	FROM USERS
+	WHERE user_id=#{user_id}
+	</select>
+	
+	<!-- 사용자 정의 카테고리 생성 -->
+	<insert id="insertUserBlogCategory">
+	INSERT INTO USER_BLOG_CATEGORY 
+	(user_id, user_category_name, user_blog_template_id, user_category_parent, admin_blog_category_id, created_at) 
+	VALUES 
+	(#{user_id}, #{user_cateogyr_name}, #{user_blog_template_id}, #{user_category_parent}, #{admin_blog_category_id}, SYSDATE())
+	</insert>
+	
+	<!-- 사용자 정의 카테고리 수정 -->
+	<update id="updateUserBlogCategory">
+	UPDATE USER_BLOG_CATEGORY
+	SET user_category_name=#{user_category_name}
+	WHERE user_blog_category_id=#{user_blog_category_id}
+	</update>
+	
+	<!-- 사용자 정의 카테고리 삭제 -->
+	<update id="deleteUserBlogCategory">
+	UPDATE USER_BLOG_CATEGORY
+	SET deleted='Y'
+	WHERE user_blog_category_id=#{user_blog_category_id}
+	</update>
+	
+	<!-- 사용자 정의 카테고리 가져오기 (부모만) -->
+	<select id="selectUserBlogCategoryParent">
+	<!-- SELECT user_category_name, u
+	FROM user_blog_category
+	WHERE user_id=#{user_id} and user_blog_Template_id=#{user_blog_Template_id} -->
+	</select>
+	
+	<!-- 사용자 정의 카테고리 부모 카테고리에 따른 자식 카테고리 정보 가져오기 -->
+	<select id="selectUserBlogCategoryChild">
+	<!-- SELECT user_category_name,
+	FROM user_blog_category
+	WHERE user_blog_cat -->
+	</select>
+	
+	<!--  -->
+
+</mapper>
