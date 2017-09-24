@@ -43,6 +43,7 @@ public class LoginController {
     	
     	/*Map<String, Object> b_no = weatherService.selectBabyNo(commandMap);
     	System.out.println("55555");*/
+    	
     	//jsp페이지 선언
         ModelAndView mv = new ModelAndView("/login/login");
         

@@ -1,0 +1,58 @@
+<%@ page pageEncoding="utf-8"%>
+<META http-equiv="Expires" content="-1"> 
+<META http-equiv="Pragma" content="no-cache"> 
+<META http-equiv="Cache-Control" content="No-Cache"> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/mobile.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+
+<script>
+	// Script to open and close sidebar
+	function w3_open() {
+	    document.getElementById("mySidebar").style.display = "block";
+	    document.getElementById("myOverlay").style.display = "block";
+	}
+	
+	function w3_close() {
+	    document.getElementById("mySidebar").style.display = "none";
+	    document.getElementById("myOverlay").style.display = "none";
+	}
+	
+	// Modal Image Gallery
+	function onClick(element) {
+	  document.getElementById("img01").src = element.src;
+	  document.getElementById("modal01").style.display = "block";
+	  var captionText = document.getElementById("caption");
+	  captionText.innerHTML = element.alt;
+	}
+
+</script>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-content{max-width:100%;}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block  w3-animate-right w3-top " style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a class="w3-bar-item  w3-center w3-padding-16 w3-text-white" style="background:#35d3d1;">메뉴<i class="material-icons w3-button w3-display-topright w3-medium" onclick="w3_close()" >close</i></a> 
+  <a  class="w3-bar-item w3-button w3-border-bottom" style="color:#6a6a6a;">
+  	<img src="/img/mobile/menu_info.png" width="20px"><span> &nbsp;실시간 복지정보</span></a> 
+  <a href="#about"  class="w3-bar-item w3-button w3-medium  w3-border-bottom" style="color:#6a6a6a;" >
+  	<img src="/img/mobile/menu_case.png" width="20px"><span> &nbsp;생생 복지사례</span></a> 
+  <a href="/mobile/information/informationList.do"   class="w3-bar-item w3-button  w3-border-bottom" style="color:#6a6a6a;">
+  	<img src="/img/mobile/menu_share.png" width="20px"><span> &nbsp;복지공유방</span></a>
+  <a href="/mobile/information/informationList.do?commun"  class="w3-bar-item w3-button  w3-border-bottom" style="color:#6a6a6a;">
+  	<img src="/img/mobile/commu.png" width="20px"><span> &nbsp;희망나눔 소통방</span>  
+  </a>
+  <a href="/mobile/supporters/supportersList.do"  class="w3-bar-item w3-button   w3-border-bottom" style="color:#6a6a6a;">
+  	<img src="/img/mobile/menu_supporters.png" width="20px"><span> &nbsp;생생 서포터즈</span></a>
+</nav>
+
