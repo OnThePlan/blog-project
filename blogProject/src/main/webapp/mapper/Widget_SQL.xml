@@ -3,14 +3,14 @@
  
 <mapper namespace="admin">
 	<!-- 관리자가 만든 카테고리 정보 생성 -->
-	<insert id="insertAdminBlogCategory" parameterType="hashmap" >
+	<insert id="insert_admin_blog_category" parameterType="hashmap" >
 		<![CDATA[
 			INSERT INTO admin_blog_category(admin_category_name, admin_category_parent, created_at, updated_at) 
 			VALUES (#{admin_category_name}, #{admin_category_parent},SYSDATE(), SYSDATE());
 		]]>
 	</insert>
 	<!--  관리자가 만든 카테고리 정보 수정 -->
-	<update id="updateAdminBlogCategory" parameterType="hashmap" >
+	<update id="update_admin_blog_category" parameterType="hashmap" >
 		<![CDATA[
 			UPDATE admin_blog_category
 			SET admin_category_name = #{admin_category_name},
@@ -21,7 +21,7 @@
 		]]>
 	</update>
 	<!-- 관리자가 만든 카테고리 정보 삭제 -->
-	<update id="deletedAdminBlogCategory" parameterType="hashmap" >
+	<update id="deleted_admin_blog_category" parameterType="hashmap" >
 		<![CDATA[
 			UPDATE admin_blog_category
 			SET deleted = "Y",
@@ -30,7 +30,7 @@
 		]]>
 	</update>
 	<!-- 캍카테고리별 리스트 정보 조회 -->
-	<select id="selectAdminBlogCategory" parameterType="hashmap" resultType="hashmap">
+	<select id="select_admin_blog_category" parameterType="hashmap" resultType="hashmap">
 	    <![CDATA[
 	        SELECT
 	            STORED_FILE_NAME,
